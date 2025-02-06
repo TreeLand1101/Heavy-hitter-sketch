@@ -35,5 +35,8 @@
 *.DS_Store
 .idea
 
+
 Result/
 *.dat
+CMakeCache.txt
+CMakeFiles/

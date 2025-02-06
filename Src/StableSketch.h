@@ -20,7 +20,7 @@ public:
         this->name = _name;
 
         LENGTH = _MEMORY / sizeof(Bucket) / HASH_NUM;
-        stage1_bias = _STAGE1_BIAS;
+        this->stage1_bias = _STAGE1_BIAS;
         sketch = new Bucket* [HASH_NUM];
         for(uint32_t i = 0; i < HASH_NUM; ++i){
             sketch[i] = new Bucket[LENGTH];
@@ -89,7 +89,7 @@ public:
         for(uint32_t i = 0; i < HASH_NUM; ++i){
             for (uint32_t j = 0; j < LENGTH; ++j) {
                 if (sketch[i][j].ID[0] != '\0' && ret.find(sketch[i][j].ID) == ret.end()) {
-                    ret[sketch[i][j].ID] = Query(sketch[i][j].ID) + stage1_bias;
+                    ret[sketch[i][j].ID] = Query(sketch[i][j].ID) + this->stage1_bias;
                 }
             }
         }
@@ -99,7 +99,6 @@ public:
 
 private:
 
-    COUNT_TYPE stage1_bias;
     uint32_t LENGTH;
     const uint32_t HASH_NUM = 4;
 

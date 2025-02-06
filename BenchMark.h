@@ -45,15 +45,13 @@ public:
         /* Modify SketchType to run on difference sketch */ 
 
         /* Proposed */
-        // #define SketchType Proposed
-        // tupleSketch = new SketchType<TUPLES>(MEMORY, threshold);
+        tupleSketch = new Proposed<TUPLES>(MEMORY, threshold);
 
         /* Other */
-        #define SketchType Elastic
-        tupleSketch = new SketchType<TUPLES>(MEMORY);
+        // tupleSketch = new StableSketch<TUPLES>(MEMORY);
 
 
-        std::cout << "+--------------------------------------------+" << std::endl;
+        std::cout << "+------------------------------------------------+" << std::endl;
         std::cout << "- " << tupleSketch->name << std::endl;
 
         Throughput(tupleSketch);
@@ -61,7 +59,7 @@ public:
         std::unordered_map<TUPLES, COUNT_TYPE> estTuple = tupleSketch->AllQuery();
 
         CompareHH(estTuple, tuplesMp, threshold, alpha);
-        std::cout << "+--------------------------------------------+" << std::endl;
+        std::cout << "+------------------------------------------------+" << std::endl;
         // printTopK(estTuple, 10000);
         // printTopK(tuplesMp, 10);
 

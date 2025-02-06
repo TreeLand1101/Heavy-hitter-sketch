@@ -14,6 +14,8 @@ public:
     virtual ~Abstract(){};
 
     std::string name;
+    COUNT_TYPE stage1_bias;
+    
     typedef std::unordered_map<DATA_TYPE, COUNT_TYPE> HashMap;
 
     virtual void Insert(const DATA_TYPE& item) = 0;
