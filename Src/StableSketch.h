@@ -47,7 +47,7 @@ public:
                 sketch[i][pos].counter = 1;
                 return;
             }
-            else if (item == sketch[i][pos].ID) {
+            if (item == sketch[i][pos].ID) {
                 sketch[i][pos].stability++;
                 sketch[i][pos].counter++;
                 return;
@@ -59,16 +59,12 @@ public:
             }
         }
 
-        if (R >= 0) {
-            int k = rand() % (int)((sketch[R][M].counter * sketch[R][M].stability) + 1.0) + 1.0;
-            if (k > sketch[R][M].counter * sketch[R][M].stability) {
-                if (--sketch[R][M].counter == 0) {
-                    sketch[R][M].ID = item;
-                    sketch[R][M].counter = 1;
-                    if (--sketch[R][M].stability < 0) {
-                        sketch[R][M].stability = 0;
-                    }
-                }
+        int k = rand() % (int)((sketch[R][M].counter * sketch[R][M].stability) + 1.0) + 1.0;
+        if (k > sketch[R][M].counter * sketch[R][M].stability) {
+            if (--sketch[R][M].counter == 0) {
+                sketch[R][M].ID = item;
+                sketch[R][M].counter = 1;
+                sketch[R][M].stability = std::max(sketch[R][M].stability - 1, 0);
             }
         }
     }

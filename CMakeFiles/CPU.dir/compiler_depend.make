@@ -403,7 +403,8 @@ CMakeFiles/CPU.dir/main.cpp.o: main.cpp \
   Src/Elastic.h \
   Src/CMHeap.h \
   Src/SpaceSaving.h \
-  Src/StableSketch.h
+  Src/StableSketch.h \
+  Src/OurSketch.h
 
 
 Struct/ColdFilter.h:
@@ -747,6 +748,8 @@ main.cpp:
 /usr/include/c++/11/bits/stl_iterator_base_funcs.h:
 
 /usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
+
+Src/OurSketch.h:
 
 /usr/include/c++/11/bits/random.tcc:
 

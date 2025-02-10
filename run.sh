@@ -1,6 +1,6 @@
 #!/bin/sh
 
-memory=200000
+memory=400000
 
 threshold=0.0001
 

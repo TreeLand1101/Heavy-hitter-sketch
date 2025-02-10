@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/treeland/Heavy-hitter-sketch/. -I/home/treeland/Heavy-hitter-sketch/Common -I/home/treeland/Heavy-hitter-sketch/Struct -I/home/treeland/Heavy-hitter-sketch/Src
+CXX_INCLUDES = -I/home/treeland/Thesis/. -I/home/treeland/Thesis/Common -I/home/treeland/Thesis/Struct -I/home/treeland/Thesis/Src
 
 CXX_FLAGS = -std=gnu++14
 

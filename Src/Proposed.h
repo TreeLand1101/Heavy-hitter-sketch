@@ -55,8 +55,8 @@ public:
 private:
     COUNT_TYPE threshold;
 
-    const double FILTER_RATIO = 0.5;
-    const double SKETCH_RATIO = 0.5;
+    const double FILTER_RATIO = 0.9;
+    const double SKETCH_RATIO = 0.1;
 
     const double L1_RATIO = 0.5;
     const double L2_RATIO = 0.5;

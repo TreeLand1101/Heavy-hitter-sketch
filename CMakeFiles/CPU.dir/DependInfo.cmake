@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/treeland/Heavy-hitter-sketch/main.cpp" "CMakeFiles/CPU.dir/main.cpp.o" "gcc" "CMakeFiles/CPU.dir/main.cpp.o.d"
+  "/home/treeland/Thesis/main.cpp" "CMakeFiles/CPU.dir/main.cpp.o" "gcc" "CMakeFiles/CPU.dir/main.cpp.o.d"
   )
 
 # Targets to which this target links.
