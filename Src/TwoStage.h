@@ -1,5 +1,5 @@
-#ifndef PROPOSED_H
-#define PROPOSED_H
+#ifndef TWOSTAGE_H
+#define TWOSTAGE_H
 
 #include "Abstract.h"
 #include "Util.h"
@@ -16,11 +16,11 @@
 #include "StableSketch.h"
 
 template<typename DATA_TYPE>
-class Proposed : public Abstract<DATA_TYPE>{
+class TwoStage : public Abstract<DATA_TYPE>{
 public:
     typedef std::unordered_map<DATA_TYPE, COUNT_TYPE> HashMap;
     
-    Proposed(uint32_t _MEMORY, uint32_t _THRESHOLD, std::string _name = "Proposed (ColdFilter + StableSketch)"){
+    TwoStage(uint32_t _MEMORY, uint32_t _THRESHOLD, std::string _name = "TwoStage (ColdFilter + StableSketch)"){
         this->name = _name;
         uint32_t FILTER_MEMORY = _MEMORY * FILTER_RATIO;
         uint32_t SKETCH_MEMORY = _MEMORY * SKETCH_RATIO;
@@ -29,7 +29,7 @@ public:
         sketch = new StableSketch<DATA_TYPE>(SKETCH_MEMORY, _THRESHOLD);
     }
 
-    ~Proposed(){
+    ~TwoStage(){
         delete filter;
         delete sketch;
     }

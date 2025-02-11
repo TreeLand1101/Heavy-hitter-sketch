@@ -15,7 +15,7 @@
 #include "SpaceSaving.h"
 #include "MVSketch.h"
 #include "StableSketch.h"
-#include "Proposed.h"
+#include "TwoStage.h"
 #include "OurSketch.h"
 
 class BenchMark{
@@ -44,8 +44,8 @@ public:
         COUNT_TYPE threshold = alpha * length;
 
         /* Modify SketchType to run on difference sketch */ 
-        // tupleSketch = new Proposed<TUPLES>(MEMORY, threshold); /* Proposed */
-        tupleSketch = new OurSketch<TUPLES>(MEMORY); /* Other */
+        // tupleSketch = new TwoStage<TUPLES>(MEMORY, threshold); /* TwoStage */
+        tupleSketch = new OurSketch<TUPLES>(MEMORY); /* Sketch */
 
         std::cout << "+------------------------------------------------+" << std::endl;
         std::cout << "- " << tupleSketch->name << std::endl;
