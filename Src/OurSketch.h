@@ -26,22 +26,22 @@ public:
         }
     };
 
-	OurSketch(uint32_t _MEMORY, uint32_t _STAGE1_BIAS = 0, std::string _name = "OurSketch"){
-	    this->name = _name;
+    OurSketch(uint32_t _MEMORY, uint32_t _STAGE1_BIAS = 0, std::string _name = "OurSketch"){
+        this->name = _name;
 
         this->stage1_bias = _STAGE1_BIAS;
-	    LENGTH = _MEMORY / sizeof(Bucket);
+        LENGTH = _MEMORY / sizeof(Bucket);
 
         buckets = new Bucket[LENGTH];
 
         memset(buckets, 0, sizeof(Bucket) * LENGTH);
-	}
+    }
 
-	~OurSketch(){
+    ~OurSketch(){
         delete [] buckets;
-	}
+    }
 
-	void Insert(const DATA_TYPE& item) {
+    void Insert(const DATA_TYPE& item) {
         uint32_t pos = hash(item) % LENGTH;
         int minIndex = -1;
         COUNT_TYPE minVal = std::numeric_limits<COUNT_TYPE>::max();
@@ -80,7 +80,7 @@ public:
             buckets[pos].ID[minIndex] = item;
             buckets[pos].count[minIndex] = 1;
         }    
-	}
+    }
 
     COUNT_TYPE Query(const DATA_TYPE& item){
         return buckets[hash(item) % LENGTH].Query(item);

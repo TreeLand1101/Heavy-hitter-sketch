@@ -3,7 +3,8 @@ import numpy as np
 import seaborn as sns
 
 def plot_bar_chart(data, metric, short_title, threshold, hatch_patterns, font_size=14):
-    """Plot bar chart (fixed threshold, comparing different memory and sketch methods)"""
+    """Plot bar chart (fixed threshold, comparing different memory and sketch methods)
+       and print the overall average value for each method."""
     plt.figure(figsize=(10, 6))
     
     # Filter data by threshold
@@ -22,14 +23,25 @@ def plot_bar_chart(data, metric, short_title, threshold, hatch_patterns, font_si
     width = 0.2  # Control bar spacing
     x = np.arange(len(memories))  # X-axis positions
     
-    # Plot bars for each method in the given order
+    # Plot bars for each method in the given order, averaging values if multiple exist
     for i, method in enumerate(methods):
         values = []
         for memory in memories:
             memory_key = f"memory_{memory * 1000}_threshold_{threshold:.4f}"
-            # Search in the list for the tuple with the current method
-            method_value = next((entry[1][metric] for entry in filtered_data[memory_key] if entry[0] == method), None)
-            values.append(method_value)
+            # Collect all metric values for the current method at this memory
+            method_values = [entry[1][metric] for entry in filtered_data[memory_key] if entry[0] == method]
+            if method_values:
+                avg_value = sum(method_values) / len(method_values)
+            else:
+                avg_value = None
+            values.append(avg_value)
+        # 計算所有 memory 的平均值
+        overall_avg = np.mean([v for v in values if v is not None])
+        if metric in ["Insert", "Query"]:
+            print(f"{method}: {short_title} average = {overall_avg:.3f} ms")
+        else:
+            print(f"{method}: {short_title} average = {overall_avg:.3f}")
+            
         bars = plt.bar(x + i * width, values, width, label=method, hatch=hatch_patterns[i % len(hatch_patterns)])
         for bar in bars:
             bar.set_edgecolor('black')  # Add border for better contrast
@@ -86,7 +98,7 @@ def plot_line_chart(data, metric, short_title, threshold, markers, font_size=14)
     plt.close()
 
 # ---------------------------
-# Test data (資料結構改為 List)
+# Test data (Data structure changed to List)
 data = {
     "memory_100000_threshold_0.0001": [
         ("OurSketch", {"Insert": 0.143302, "Query": 0.117792, "Recall": 0.900875, "Precision": 0.743384, "F1-score": 0.814587, "AAE": 200.249191, "ARE": 0.035055}),
@@ -126,12 +138,12 @@ markers = ['o', 's', '^', 'D', 'v']  # Different markers for methods
 hatch_patterns = ['/', '\\', '|', '-', '+']  # Different bar patterns
 
 for threshold in thresholds:
-    plot_bar_chart(data, "Insert", "Insert", threshold, hatch_patterns)
-    plot_bar_chart(data, "Query", "Query", threshold, hatch_patterns)
+    plot_bar_chart(data, "Insert", "Insert", threshold, hatch_patterns, font_size=14)
+    plot_bar_chart(data, "Query", "Query", threshold, hatch_patterns, font_size=14)
     
     # Plot line charts
-    plot_line_chart(data, "AAE", "AAE", threshold, markers)
-    plot_line_chart(data, "ARE", "ARE", threshold, markers)
-    plot_line_chart(data, "Recall", "Recall", threshold, markers)
-    plot_line_chart(data, "Precision", "Precision", threshold, markers)
-    plot_line_chart(data, "F1-score", "F1-score", threshold, markers)
+    plot_line_chart(data, "AAE", "AAE", threshold, markers, font_size=14)
+    plot_line_chart(data, "ARE", "ARE", threshold, markers, font_size=14)
+    plot_line_chart(data, "Recall", "Recall", threshold, markers, font_size=14)
+    plot_line_chart(data, "Precision", "Precision", threshold, markers, font_size=14)
+    plot_line_chart(data, "F1-score", "F1-score", threshold, markers, font_size=14)

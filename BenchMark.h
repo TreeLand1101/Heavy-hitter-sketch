@@ -47,7 +47,6 @@ public:
         // tupleSketch = new Proposed<TUPLES>(MEMORY, threshold); /* Proposed */
         tupleSketch = new StableSketch<TUPLES>(MEMORY); /* Other */
 
-
         std::cout << "+------------------------------------------------+" << std::endl;
         std::cout << "- " << tupleSketch->name << std::endl;
 
