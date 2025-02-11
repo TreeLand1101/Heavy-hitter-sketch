@@ -14,7 +14,6 @@ public:
     struct Bucket{
         DATA_TYPE ID[COUNTER_PER_BUCKET];
         COUNT_TYPE count[COUNTER_PER_BUCKET];
-        // COUNT_TYPE stability[COUNTER_PER_BUCKET];
 
         COUNT_TYPE Query(const DATA_TYPE item) {
             for(uint32_t i = 0; i < COUNTER_PER_BUCKET; i++) {
@@ -49,14 +48,12 @@ public:
         for (uint32_t i = 0; i < COUNTER_PER_BUCKET; i++){
             if(buckets[pos].ID[i] == item){
                 buckets[pos].count[i]++;
-                // buckets[pos].stability[i]++;
                 return;
             }
 
             if(buckets[pos].count[i] == 0){
                 buckets[pos].ID[i] = item;
                 buckets[pos].count[i] = 1;
-                // buckets[pos].stability[i] = 1;
                 return;
             }
 
@@ -65,15 +62,6 @@ public:
                 minIndex = i;
             }
         }
-
-            // int k = rand() % (int)((buckets[pos].count[minIndex] * buckets[pos].stability[minIndex]) + 1.0) + 1.0;
-            // if (k > buckets[pos].count[minIndex] * buckets[pos].stability[minIndex]) {
-            //     if (--buckets[pos].count[minIndex] == 0) {
-            //         buckets[pos].ID[minIndex] = item;
-            //         buckets[pos].count[minIndex] = 1;
-            //         buckets[pos].stability[minIndex] = std::max(buckets[pos].stability[minIndex] - 1, 0);
-            //     }
-            // }
 
         buckets[pos].count[minIndex]++;
         if (randomGenerator() % buckets[pos].count[minIndex] == 0) {

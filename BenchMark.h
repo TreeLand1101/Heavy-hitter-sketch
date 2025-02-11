@@ -45,7 +45,7 @@ public:
 
         /* Modify SketchType to run on difference sketch */ 
         // tupleSketch = new Proposed<TUPLES>(MEMORY, threshold); /* Proposed */
-        tupleSketch = new StableSketch<TUPLES>(MEMORY); /* Other */
+        tupleSketch = new OurSketch<TUPLES>(MEMORY); /* Other */
 
         std::cout << "+------------------------------------------------+" << std::endl;
         std::cout << "- " << tupleSketch->name << std::endl;
@@ -91,6 +91,11 @@ private:
                 aae += abs(realF - estF);
                 are += abs(realF - estF) / realF;
             }
+
+            // if (real) {
+            //     aae += abs(realF - estF);
+            //     are += abs(realF - estF) / realF;
+            // }
         }
 
         double recall = bothHH / realHH;
