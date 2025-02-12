@@ -49,6 +49,5 @@ CTestTestfile.cmake
 _deps
 CMakeUserPresets.json
 
-
 *.dat
 .vscode/
