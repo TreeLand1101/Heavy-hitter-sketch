@@ -15,9 +15,11 @@ Requirements
 
 How to run
 -------
+- To modify `memory` and the `heavy hitter threshold`, please refer to `run.sh`
+- To run on a difference sketch, please refer to `BenchMark.h`
+
 ```bash
 $ cmake .
-$ make
-$ ./CPU memory threshold datset
-
+$ sh run.sh
+```
 dat: https://drive.google.com/file/d/1knFXziAxpczhG25EeKdmq1zdfrq1eSb6/view?usp=drive_link
