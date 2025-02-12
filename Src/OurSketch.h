@@ -64,10 +64,10 @@ public:
         }
 
         buckets[pos].count[minIndex]++;
-        if (randomGenerator() % buckets[pos].count[minIndex] == 0) {
+        if (randomGenerator() % (buckets[pos].count[minIndex]) == 0) {
             buckets[pos].ID[minIndex] = item;
             buckets[pos].count[minIndex] = 1;
-        }    
+        }
     }
 
     COUNT_TYPE Query(const DATA_TYPE& item){

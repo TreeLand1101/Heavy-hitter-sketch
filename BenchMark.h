@@ -45,7 +45,7 @@ public:
 
         /* Modify SketchType to run on difference sketch */ 
         // tupleSketch = new TwoStage<TUPLES>(MEMORY, threshold); /* TwoStage */
-        tupleSketch = new OurSketch<TUPLES>(MEMORY); /* Sketch */
+        tupleSketch = new StableSketch<TUPLES>(MEMORY); /* Sketch */
 
         std::cout << "+------------------------------------------------+" << std::endl;
         std::cout << "- " << tupleSketch->name << std::endl;
