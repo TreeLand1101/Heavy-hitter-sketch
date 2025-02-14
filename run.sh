@@ -2,7 +2,7 @@
 
 memory=500000
 
-threshold=0.0002
+threshold=0.0001
 
 log_path=Result/memory_${memory}_threshold_${threshold}.txt
 

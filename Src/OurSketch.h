@@ -4,12 +4,12 @@
 #include "Abstract.h"
 #include <limits> 
 
-#define COUNTER_PER_BUCKET 4
-
 template<typename DATA_TYPE>
 class OurSketch : public Abstract<DATA_TYPE> {
 public:
     typedef std::unordered_map<DATA_TYPE, COUNT_TYPE> HashMap;
+    static constexpr uint32_t COUNTER_PER_BUCKET = 4;
+
 
     struct Bucket{
         DATA_TYPE ID[COUNTER_PER_BUCKET];
@@ -42,7 +42,7 @@ public:
 
     void Insert(const DATA_TYPE& item) {
         uint32_t pos = hash(item) % LENGTH;
-        int minIndex = -1;
+        int minPos = -1;
         COUNT_TYPE minVal = std::numeric_limits<COUNT_TYPE>::max();
 
         for (uint32_t i = 0; i < COUNTER_PER_BUCKET; i++){
@@ -59,21 +59,21 @@ public:
 
             if(buckets[pos].count[i] < minVal){
                 minVal = buckets[pos].count[i];
-                minIndex = i;
+                minPos = i;
             }
         }
         // 1.original
-        buckets[pos].count[minIndex]++;
-        if (randomGenerator() % (buckets[pos].count[minIndex]) == 0) {
-            buckets[pos].ID[minIndex] = item;
-            buckets[pos].count[minIndex] = 1;
+        buckets[pos].count[minPos]++;
+        if (randomGenerator() % (buckets[pos].count[minPos]) == 0) {
+            buckets[pos].ID[minPos] = item;
+            buckets[pos].count[minPos] = 1;
         }
 
         // 2.decay
-        // if (randomGenerator() % (int)(std::pow(1.08, buckets[pos].count[minIndex])) == 0) {
-        //     if (--buckets[pos].count[minIndex] <= 0) {
-        //         buckets[pos].ID[minIndex] = item;
-        //         buckets[pos].count[minIndex] = 1;                
+        // if (randomGenerator() % (int)(std::pow(1.08, buckets[pos].count[minPos])) == 0) {
+        //     if (--buckets[pos].count[minPos] <= 0) {
+        //         buckets[pos].ID[minPos] = item;
+        //         buckets[pos].count[minPos] = 1;                
         //     }
         // }
     }

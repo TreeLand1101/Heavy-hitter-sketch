@@ -1,17 +1,16 @@
-#ifndef ELASTICHEAVYPART_H
-#define ELASTICHEAVYPART_H
+#ifndef HEAVYGUARDIAN_H
+#define HEAVYGUARDIAN_H
 
 #include "Abstract.h"
 #include <limits> 
 
 template<typename DATA_TYPE>
-class ElasticHeavyPart : public Abstract<DATA_TYPE> {
+class HeavyGuardian : public Abstract<DATA_TYPE> {
 public:
     typedef std::unordered_map<DATA_TYPE, COUNT_TYPE> HashMap;
-    static constexpr uint32_t COUNTER_PER_BUCKET = 4;
+    static constexpr uint32_t COUNTER_PER_BUCKET = 8;
 
     struct Bucket{
-        COUNT_TYPE vote;
         DATA_TYPE ID[COUNTER_PER_BUCKET];
         COUNT_TYPE count[COUNTER_PER_BUCKET];
 
@@ -25,7 +24,7 @@ public:
         }
     };
 
-    ElasticHeavyPart(uint32_t _MEMORY, uint32_t _STAGE1_BIAS = 0, std::string _name = "ElasticHeavyPart"){
+    HeavyGuardian(uint32_t _MEMORY, uint32_t _STAGE1_BIAS = 0, std::string _name = "HeavyGuardian"){
         this->name = _name;
 
         this->stage1_bias = _STAGE1_BIAS;
@@ -36,7 +35,7 @@ public:
         memset(buckets, 0, sizeof(Bucket) * LENGTH);
     }
 
-    ~ElasticHeavyPart(){
+    ~HeavyGuardian(){
         delete [] buckets;
     }
 
@@ -62,24 +61,22 @@ public:
             }
         }
 
-        if((buckets[pos].vote + 1) >= minVal * LAMBDA){
-            buckets[pos].vote = 0;
-            buckets[pos].ID[minPos] = item;
-            buckets[pos].count[minPos] = 1;
-        }
-        else {
-            buckets[pos].vote += 1;
+        if (randomGenerator() % (int)(std::pow(decrementBase, buckets[pos].count[minPos])) == 0) {
+            if (--buckets[pos].count[minPos] <= 0) {
+                buckets[pos].ID[minPos] = item;
+                buckets[pos].count[minPos] = 1;                
+            }
         }
     }
 
     COUNT_TYPE Query(const DATA_TYPE& item){
-        return buckets[hash(item) % LENGTH].Query(item) + this->stage1_bias;
+        return buckets[hash(item) % LENGTH].Query(item);
     }
 
     HashMap AllQuery(){
         HashMap ret;
-        for(uint32_t i = 0;i < LENGTH;++i){
-            for(uint32_t j = 0;j < COUNTER_PER_BUCKET;++j){
+        for(uint32_t i = 0; i < LENGTH; ++i){
+            for(uint32_t j = 0; j < COUNTER_PER_BUCKET; ++j) {
                 if (buckets[i].ID[j][0] != '\0') {
                     ret[buckets[i].ID[j]] = buckets[i].count[j] + this->stage1_bias;
                 }
@@ -89,9 +86,9 @@ public:
     }
 
 private:
-    const uint32_t LAMBDA = 8;
     uint32_t LENGTH;
     Bucket* buckets;
+    const double decrementBase = 1.08;
 };
 
 #endif

@@ -4,12 +4,11 @@
 #include "Abstract.h"
 #include <limits> 
 
-#define COUNTER_PER_BUCKET 4
-
 template<typename DATA_TYPE>
 class Elastic : public Abstract<DATA_TYPE> {
 public:
     typedef std::unordered_map<DATA_TYPE, COUNT_TYPE> HashMap;
+    static constexpr uint32_t COUNTER_PER_BUCKET = 4;
 
     struct Bucket{
         COUNT_TYPE vote;
@@ -28,11 +27,11 @@ public:
         }
     };
 
-	Elastic(uint32_t _MEMORY, uint32_t _STAGE1_BIAS = 0, std::string _name = "Elastic"){
-	    this->name = _name;
+    Elastic(uint32_t _MEMORY, uint32_t _STAGE1_BIAS = 0, std::string _name = "Elastic"){
+        this->name = _name;
 
         this->stage1_bias = _STAGE1_BIAS;
-	    HEAVY_LENGTH = _MEMORY * HEAVY_RATIO / sizeof(Bucket);
+        HEAVY_LENGTH = _MEMORY * HEAVY_RATIO / sizeof(Bucket);
         LIGHT_LENGTH = _MEMORY * LIGHT_RATIO / sizeof(COUNT_TYPE);
 
         buckets = new Bucket[HEAVY_LENGTH];
@@ -40,14 +39,14 @@ public:
 
         memset(buckets, 0, sizeof(Bucket) * HEAVY_LENGTH);
         memset(counters, 0, sizeof(COUNT_TYPE) * LIGHT_LENGTH);
-	}
+    }
 
-	~Elastic(){
+    ~Elastic(){
         delete [] counters;
         delete [] buckets;
-	}
+    }
 
-	void Insert(const DATA_TYPE& item) {
+    void Insert(const DATA_TYPE& item) {
         uint32_t pos = hash(item) % HEAVY_LENGTH, minPos = 0;
         COUNT_TYPE minVal = std::numeric_limits<COUNT_TYPE>::max();
 
@@ -82,7 +81,7 @@ public:
             buckets[pos].vote += 1;
             Light_Insert(item);
         }
-	}
+    }
 
     COUNT_TYPE Query(const DATA_TYPE& item){
         uint8_t flag = 1;
