@@ -17,9 +17,10 @@
 #include "StableSketch.h"
 #include "TwoStage.h"
 #include "OurSketch.h"
+#include "ElasticHeavyPart.h"
 
 /* Modify SketchType to run on difference sketch */ 
-#define SketchType OurSketch
+#define SketchType ElasticHeavyPart
 
 class BenchMark{
 public:

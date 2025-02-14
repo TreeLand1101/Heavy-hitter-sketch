@@ -1,5 +1,5 @@
-#ifndef OURSKETCH_H
-#define OURSKETCH_H
+#ifndef ELASTICHEAVYPART_H
+#define ELASTICHEAVYPART_H
 
 #include "Abstract.h"
 #include <limits> 
@@ -7,11 +7,12 @@
 #define COUNTER_PER_BUCKET 4
 
 template<typename DATA_TYPE>
-class OurSketch : public Abstract<DATA_TYPE> {
+class ElasticHeavyPart : public Abstract<DATA_TYPE> {
 public:
     typedef std::unordered_map<DATA_TYPE, COUNT_TYPE> HashMap;
 
     struct Bucket{
+        COUNT_TYPE vote;
         DATA_TYPE ID[COUNTER_PER_BUCKET];
         COUNT_TYPE count[COUNTER_PER_BUCKET];
 
@@ -25,29 +26,28 @@ public:
         }
     };
 
-    OurSketch(uint32_t _MEMORY, uint32_t _STAGE1_BIAS = 0, std::string _name = "OurSketch"){
-        this->name = _name;
+	ElasticHeavyPart(uint32_t _MEMORY, uint32_t _STAGE1_BIAS = 0, std::string _name = "ElasticHeavyPart"){
+	    this->name = _name;
 
         this->stage1_bias = _STAGE1_BIAS;
-        LENGTH = _MEMORY / sizeof(Bucket);
+	    LENGTH = _MEMORY / sizeof(Bucket);
 
         buckets = new Bucket[LENGTH];
 
         memset(buckets, 0, sizeof(Bucket) * LENGTH);
-    }
+	}
 
-    ~OurSketch(){
+	~ElasticHeavyPart(){
         delete [] buckets;
-    }
+	}
 
-    void Insert(const DATA_TYPE& item) {
-        uint32_t pos = hash(item) % LENGTH;
-        int minIndex = -1;
+	void Insert(const DATA_TYPE& item) {
+        uint32_t pos = hash(item) % LENGTH, minPos = 0;
         COUNT_TYPE minVal = std::numeric_limits<COUNT_TYPE>::max();
 
         for (uint32_t i = 0; i < COUNTER_PER_BUCKET; i++){
             if(buckets[pos].ID[i] == item){
-                buckets[pos].count[i]++;
+                buckets[pos].count[i] += 1;
                 return;
             }
 
@@ -58,34 +58,29 @@ public:
             }
 
             if(buckets[pos].count[i] < minVal){
+                minPos = i;
                 minVal = buckets[pos].count[i];
-                minIndex = i;
             }
         }
-        // 1.original
-        buckets[pos].count[minIndex]++;
-        if (randomGenerator() % (buckets[pos].count[minIndex]) == 0) {
-            buckets[pos].ID[minIndex] = item;
-            buckets[pos].count[minIndex] = 1;
-        }
 
-        // 2.decay
-        // if (randomGenerator() % (int)(std::pow(1.08, buckets[pos].count[minIndex])) == 0) {
-        //     if (--buckets[pos].count[minIndex] <= 0) {
-        //         buckets[pos].ID[minIndex] = item;
-        //         buckets[pos].count[minIndex] = 1;                
-        //     }
-        // }
-    }
+        if((buckets[pos].vote + 1) >= minVal * LAMBDA){
+            buckets[pos].vote = 0;
+            buckets[pos].ID[minPos] = item;
+            buckets[pos].count[minPos] = 1;
+        }
+        else {
+            buckets[pos].vote += 1;
+        }
+	}
 
     COUNT_TYPE Query(const DATA_TYPE& item){
-        return buckets[hash(item) % LENGTH].Query(item);
+        return buckets[hash(item) % LENGTH].Query(item) + this->stage1_bias;
     }
 
     HashMap AllQuery(){
         HashMap ret;
-        for(uint32_t i = 0; i < LENGTH; ++i){
-            for(uint32_t j = 0; j < COUNTER_PER_BUCKET; ++j) {
+        for(uint32_t i = 0;i < LENGTH;++i){
+            for(uint32_t j = 0;j < COUNTER_PER_BUCKET;++j){
                 if (buckets[i].ID[j][0] != '\0') {
                     ret[buckets[i].ID[j]] = buckets[i].count[j] + this->stage1_bias;
                 }
@@ -95,7 +90,10 @@ public:
     }
 
 private:
+    const uint32_t LAMBDA = 8;
+
     uint32_t LENGTH;
+
     Bucket* buckets;
 };
 

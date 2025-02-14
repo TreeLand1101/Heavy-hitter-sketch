@@ -15,18 +15,20 @@
 #include "SpaceSaving.h"
 #include "StableSketch.h"
 
+#define Stage2SketchType Elastic
+
 template<typename DATA_TYPE>
 class TwoStage : public Abstract<DATA_TYPE>{
 public:
     typedef std::unordered_map<DATA_TYPE, COUNT_TYPE> HashMap;
     
-    TwoStage(uint32_t _MEMORY, uint32_t _THRESHOLD, std::string _name = "TwoStage (ColdFilter + StableSketch)"){
+    TwoStage(uint32_t _MEMORY, uint32_t _THRESHOLD, std::string _name = "TwoStage (ColdFilter + Elastic)"){
         this->name = _name;
         uint32_t FILTER_MEMORY = _MEMORY * FILTER_RATIO;
         uint32_t SKETCH_MEMORY = _MEMORY * SKETCH_RATIO;
         threshold = _THRESHOLD;
         filter = new ColdFilter<DATA_TYPE, COUNT_TYPE>(FILTER_MEMORY, _THRESHOLD);
-        sketch = new StableSketch<DATA_TYPE>(SKETCH_MEMORY, _THRESHOLD);
+        sketch = new Stage2SketchType<DATA_TYPE>(SKETCH_MEMORY, _THRESHOLD);
     }
 
     ~TwoStage(){
@@ -62,7 +64,7 @@ private:
     const double L2_RATIO = 0.5;
 
     ColdFilter<DATA_TYPE, COUNT_TYPE>* filter;
-    StableSketch<DATA_TYPE>* sketch;
+    Stage2SketchType<DATA_TYPE>* sketch;
 };
 
 #endif

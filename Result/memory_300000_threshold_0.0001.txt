@@ -58,3 +58,18 @@ equinix-chicago.dirA.20160121-140000.UTC.anon.dat
     AAE: 125.830529
     ARE: 0.016621
 +------------------------------------------------+
+equinix-chicago.dirA.20160121-140000.UTC.anon.dat
++------------------------------------------------+
+- ElasticHeavyPart
+- Average Time Per Operation
+    Insert: 0.132741 ms
+    Query: 0.113624 ms
+- CompareHH
+    Total Packets: 32163023
+    Threshold: 0.010000% (Packet Count: 3216)
+    Recall: 0.971817
+    Precision: 1.000000
+    F1 Socre: 0.985707
+    AAE: 58.974000
+    ARE: 0.009294
++------------------------------------------------+

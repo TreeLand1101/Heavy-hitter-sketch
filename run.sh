@@ -1,8 +1,8 @@
 #!/bin/sh
 
-memory=250000
+memory=500000
 
-threshold=0.0001
+threshold=0.0002
 
 log_path=Result/memory_${memory}_threshold_${threshold}.txt
 

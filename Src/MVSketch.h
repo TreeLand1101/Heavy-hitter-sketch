@@ -56,7 +56,7 @@ public:
         COUNT_TYPE ret = std::numeric_limits<COUNT_TYPE>::max();
 
         for(uint32_t i = 0; i < HASH_NUM; ++i) {
-            uint32_t pos = hash(item) % LENGTH;    
+            uint32_t pos = hash(item, i) % LENGTH;    
             if (sketch[i][pos].ID == item) {
                 ret = std::min(ret, (sketch[i][pos].total_sum + sketch[i][pos].counter) / 2);
             }

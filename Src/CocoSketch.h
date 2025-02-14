@@ -60,15 +60,12 @@ public:
     }
 
     COUNT_TYPE Query(const DATA_TYPE& item){
-        COUNT_TYPE ret = std::numeric_limits<COUNT_TYPE>::max();
-
         for(uint32_t i = 0; i < HASH_NUM; ++i) {
             uint32_t position = hash(item, i) % LENGTH;
             if(counter[i][position].ID == item){
                 return counter[i][position].count + this->stage1_bias;
             }
         }
-
         return 0;
     }
 
