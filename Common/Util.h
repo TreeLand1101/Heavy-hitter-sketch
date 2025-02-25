@@ -40,6 +40,10 @@ struct TUPLES{
     uint8_t& operator[](size_t index) {
         return data[index];
     }
+    
+    inline uint64_t srcIP_dstIP() const{
+        return *((uint64_t*)(data));
+    }
 };
 
 bool operator == (const TUPLES& a, const TUPLES& b){

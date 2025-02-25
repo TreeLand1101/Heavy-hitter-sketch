@@ -2,89 +2,104 @@ equinix-chicago.dirA.20160121-140000.UTC.anon.dat
 +------------------------------------------------+
 - OurSketch
 - Average Time Per Operation
-    Insert: 0.141334 ms
-    Query: 0.115641 ms
+    Insert: 0.145913 ms
+    Query: 0.112879 ms
 - CompareHH
     Total Packets: 32163023
     Threshold: 0.010000% (Packet Count: 3216)
-    Recall: 0.990282
-    Precision: 0.998041
-    F1 Socre: 0.994146
-    AAE: 28.037291
-    ARE: 0.004578
+    Recall: 0.959184
+    Precision: 0.950867
+    F1 Socre: 0.955007
+    AAE: 77.605876
+    ARE: 0.012953
 +------------------------------------------------+
 equinix-chicago.dirA.20160121-140000.UTC.anon.dat
 +------------------------------------------------+
 - Elastic
 - Average Time Per Operation
-    Insert: 0.178444 ms
-    Query: 0.154073 ms
+    Insert: 0.173143 ms
+    Query: 0.160862 ms
 - CompareHH
     Total Packets: 32163023
     Threshold: 0.010000% (Packet Count: 3216)
-    Recall: 0.991254
-    Precision: 0.919748
-    F1 Socre: 0.954163
-    AAE: 114.371569
-    ARE: 0.021139
+    Recall: 0.935860
+    Precision: 0.799834
+    F1 Socre: 0.862517
+    AAE: 422.763240
+    ARE: 0.073914
 +------------------------------------------------+
 equinix-chicago.dirA.20160121-140000.UTC.anon.dat
 +------------------------------------------------+
 - CocoSketch
 - Average Time Per Operation
-    Insert: 0.160239 ms
-    Query: 0.143605 ms
+    Insert: 0.159396 ms
+    Query: 0.133753 ms
 - CompareHH
     Total Packets: 32163023
     Threshold: 0.010000% (Packet Count: 3216)
-    Recall: 0.979592
-    Precision: 0.936803
-    F1 Socre: 0.957720
-    AAE: 84.376984
-    ARE: 0.015874
+    Recall: 0.953353
+    Precision: 0.692308
+    F1 Socre: 0.802126
+    AAE: 304.227319
+    ARE: 0.060095
 +------------------------------------------------+
 equinix-chicago.dirA.20160121-140000.UTC.anon.dat
 +------------------------------------------------+
 - StableSketch
 - Average Time Per Operation
-    Insert: 0.274671 ms
-    Query: 0.223546 ms
+    Insert: 0.283417 ms
+    Query: 0.225754 ms
 - CompareHH
     Total Packets: 32163023
     Threshold: 0.010000% (Packet Count: 3216)
-    Recall: 0.846453
+    Recall: 0.769679
     Precision: 1.000000
-    F1 Socre: 0.916842
-    AAE: 130.363949
-    ARE: 0.015159
+    F1 Socre: 0.869852
+    AAE: 176.231061
+    ARE: 0.015442
 +------------------------------------------------+
 equinix-chicago.dirA.20160121-140000.UTC.anon.dat
 +------------------------------------------------+
 - ElasticHeavyPart
 - Average Time Per Operation
-    Insert: 0.131823 ms
-    Query: 0.120763 ms
+    Insert: 0.133649 ms
+    Query: 0.10985 ms
 - CompareHH
     Total Packets: 32163023
     Threshold: 0.010000% (Packet Count: 3216)
-    Recall: 0.976676
+    Recall: 0.962099
     Precision: 1.000000
-    F1 Socre: 0.988201
-    AAE: 30.073632
-    ARE: 0.005379
+    F1 Socre: 0.980684
+    AAE: 62.014141
+    ARE: 0.010460
 +------------------------------------------------+
 equinix-chicago.dirA.20160121-140000.UTC.anon.dat
 +------------------------------------------------+
 - HeavyGuardian
 - Average Time Per Operation
-    Insert: 0.180396 ms
-    Query: 0.130297 ms
+    Insert: 0.192544 ms
+    Query: 0.140257 ms
 - CompareHH
     Total Packets: 32163023
     Threshold: 0.010000% (Packet Count: 3216)
-    Recall: 0.989310
+    Recall: 0.921283
     Precision: 1.000000
-    F1 Socre: 0.994626
-    AAE: 16.492141
-    ARE: 0.002520
+    F1 Socre: 0.959029
+    AAE: 39.928270
+    ARE: 0.005482
++------------------------------------------------+
+equinix-chicago.dirA.20160121-140000.UTC.anon.dat
++------------------------------------------------+
+- TwoFASketch
+- Average Time Per Operation
+    Insert: 0.165419 ms
+    Query: 0.135193 ms
+- CompareHH
+    Total Packets: 32163023
+    Threshold: 0.010000% (Packet Count: 3216)
+    Recall: 0.996113
+    Precision: 0.988428
+    F1 Socre: 0.992256
+    AAE: 27.689756
+    ARE: 0.005345
 +------------------------------------------------+

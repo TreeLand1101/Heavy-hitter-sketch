@@ -2,104 +2,104 @@ equinix-chicago.dirA.20160121-140000.UTC.anon.dat
 +------------------------------------------------+
 - OurSketch
 - Average Time Per Operation
-    Insert: 0.143302 ms
-    Query: 0.117792 ms
+    Insert: 0.141334 ms
+    Query: 0.115641 ms
 - CompareHH
     Total Packets: 32163023
     Threshold: 0.010000% (Packet Count: 3216)
-    Recall: 0.900875
-    Precision: 0.743384
-    F1 Socre: 0.814587
-    AAE: 200.249191
-    ARE: 0.035055
+    Recall: 0.990282
+    Precision: 0.998041
+    F1 Socre: 0.994146
+    AAE: 28.037291
+    ARE: 0.004578
 +------------------------------------------------+
 equinix-chicago.dirA.20160121-140000.UTC.anon.dat
 +------------------------------------------------+
 - Elastic
 - Average Time Per Operation
-    Insert: 0.171799 ms
-    Query: 0.152786 ms
+    Insert: 0.178444 ms
+    Query: 0.154073 ms
 - CompareHH
     Total Packets: 32163023
     Threshold: 0.010000% (Packet Count: 3216)
-    Recall: 0.736638
-    Precision: 0.807242
-    F1 Socre: 0.770325
-    AAE: 1094.941953
-    ARE: 0.161874
+    Recall: 0.991254
+    Precision: 0.919748
+    F1 Socre: 0.954163
+    AAE: 114.371569
+    ARE: 0.021139
 +------------------------------------------------+
 equinix-chicago.dirA.20160121-140000.UTC.anon.dat
 +------------------------------------------------+
 - CocoSketch
 - Average Time Per Operation
-    Insert: 0.164452 ms
-    Query: 0.138738 ms
+    Insert: 0.160239 ms
+    Query: 0.143605 ms
 - CompareHH
     Total Packets: 32163023
     Threshold: 0.010000% (Packet Count: 3216)
-    Recall: 0.852284
-    Precision: 0.149378
-    F1 Socre: 0.254203
-    AAE: 987.581528
-    ARE: 0.198778
+    Recall: 0.979592
+    Precision: 0.936803
+    F1 Socre: 0.957720
+    AAE: 84.376984
+    ARE: 0.015874
 +------------------------------------------------+
 equinix-chicago.dirA.20160121-140000.UTC.anon.dat
 +------------------------------------------------+
 - StableSketch
 - Average Time Per Operation
-    Insert: 0.304445 ms
-    Query: 0.229796 ms
+    Insert: 0.274671 ms
+    Query: 0.223546 ms
 - CompareHH
     Total Packets: 32163023
     Threshold: 0.010000% (Packet Count: 3216)
-    Recall: 0.679300
+    Recall: 0.846453
     Precision: 1.000000
-    F1 Socre: 0.809028
-    AAE: 155.566524
-    ARE: 0.015543
+    F1 Socre: 0.916842
+    AAE: 130.363949
+    ARE: 0.015159
 +------------------------------------------------+
 equinix-chicago.dirA.20160121-140000.UTC.anon.dat
 +------------------------------------------------+
 - ElasticHeavyPart
 - Average Time Per Operation
-    Insert: 0.132123 ms
-    Query: 0.107287 ms
+    Insert: 0.131823 ms
+    Query: 0.120763 ms
 - CompareHH
     Total Packets: 32163023
     Threshold: 0.010000% (Packet Count: 3216)
-    Recall: 0.938776
+    Recall: 0.976676
     Precision: 1.000000
-    F1 Socre: 0.968421
-    AAE: 129.341615
-    ARE: 0.017569
+    F1 Socre: 0.988201
+    AAE: 30.073632
+    ARE: 0.005379
 +------------------------------------------------+
 equinix-chicago.dirA.20160121-140000.UTC.anon.dat
 +------------------------------------------------+
 - HeavyGuardian
 - Average Time Per Operation
-    Insert: 0.206189 ms
-    Query: 0.137011 ms
+    Insert: 0.180396 ms
+    Query: 0.130297 ms
 - CompareHH
     Total Packets: 32163023
     Threshold: 0.010000% (Packet Count: 3216)
-    Recall: 0.829932
+    Recall: 0.989310
     Precision: 1.000000
-    F1 Socre: 0.907063
-    AAE: 67.988290
-    ARE: 0.008963
+    F1 Socre: 0.994626
+    AAE: 16.492141
+    ARE: 0.002520
 +------------------------------------------------+
 equinix-chicago.dirA.20160121-140000.UTC.anon.dat
 +------------------------------------------------+
-- HeavyGuardian
+- TwoFASketch
 - Average Time Per Operation
-    Insert: 0.201577 ms
-    Query: 0.135039 ms
+    Insert: 0.161439 ms
+    Query: 0.136928 ms
 - CompareHH
     Total Packets: 32163023
     Threshold: 0.010000% (Packet Count: 3216)
-    Recall: 0.834791
-    Precision: 1.000000
-    F1 Socre: 0.909958
-    AAE: 65.696158
-    ARE: 0.008977
+    Recall: 0.999028
+    Precision: 0.997090
+    F1 Socre: 0.998058
+    AAE: 8.359922
+    ARE: 0.001622
 +------------------------------------------------+

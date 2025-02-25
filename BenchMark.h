@@ -19,9 +19,12 @@
 #include "OurSketch.h"
 #include "ElasticHeavyPart.h"
 #include "HeavyGuardian.h"
+#include "TwoFASketch.h"
+#include "TightSketch.h"
+#include "OurSketch2.h"
 
 /* Modify SketchType to run on difference sketch */ 
-#define SketchType HeavyGuardian
+#define SketchType TightSketch
 
 class BenchMark{
 public:
@@ -95,11 +98,6 @@ private:
                 aae += abs(realF - estF);
                 are += abs(realF - estF) / realF;
             }
-
-            // if (real) {
-            //     aae += abs(realF - estF);
-            //     are += abs(realF - estF) / realF;
-            // }
         }
 
         double recall = bothHH / realHH;

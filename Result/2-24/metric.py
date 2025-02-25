@@ -110,8 +110,8 @@ data = {
         ("MVSketch(2stage)", {"Insert": 0.280355, "Query": 0.359183, "Recall": 0.542274, "Precision": 0.421132, "F1-score": 0.474087, "AAE": 1336.055556, "ARE": 0.233729}),
         ("StableSketch", {"Insert": 0.301112, "Query": 0.234884, "Recall": 0.679300, "Precision": 1.000000, "F1-score": 0.809028, "AAE": 155.566524, "ARE": 0.015543}),
         ("StableSketch(2stage)", {"Insert": 0.237258, "Query": 0.279340, "Recall": 0.793003, "Precision": 0.789168, "F1-score": 0.791081, "AAE": 312.789216, "ARE": 0.042036}),
-        ("TightSketch", {"Insert": 0.310383, "Query": 0.233490, "Recall": 0.764820, "Precision": 1.000000, "F1-score": 0.866740, "AAE": 210.993647, "ARE": 0.020289}),
-        ("TightSketch(2stage)", {"Insert": 0.240006, "Query": 0.273893, "Recall": 0.835763, "Precision": 0.848126, "F1-score": 0.841899, "AAE": 297.511628, "ARE": 0.043256})
+        ("TightSketch", {"Insert": 0.31868, "Query": 0.231021, "Recall": 0.906706, "Precision": 1.000000, "F1-score": 0.951070, "AAE": 84.231511, "ARE": 0.015558}),
+        ("TightSketch(2stage)", {"Insert": 0.245731, "Query": 0.284935, "Recall": 0.927114, "Precision": 0.861789, "F1-score": 0.893258, "AAE": 301.010482, "ARE": 0.048367})
     ],
 
     "memory_200000_threshold_0.0001": [
@@ -119,8 +119,8 @@ data = {
         ("MVSketch(2stage)", {"Insert": 0.257853, "Query": 0.317110, "Recall": 0.941691, "Precision": 0.818412, "F1-score": 0.875734, "AAE": 224.542828, "ARE": 0.039645}),
         ("StableSketch", {"Insert": 0.280776, "Query": 0.220588, "Recall": 0.769679, "Precision": 1.000000, "F1-score": 0.869852, "AAE": 176.231061, "ARE": 0.015442}),
         ("StableSketch(2stage)", {"Insert": 0.202193, "Query": 0.229141, "Recall": 0.971817, "Precision": 0.882613, "F1-score": 0.925069, "AAE": 169.438000, "ARE": 0.027589}),
-        ("TightSketch", {"Insert": 0.300127, "Query": 0.222544, "Recall": 0.859086, "Precision": 1.000000, "F1-score": 0.924203, "AAE": 85.467195, "ARE": 0.011484}),
-        ("TightSketch(2stage)", {"Insert": 0.199445, "Query": 0.222052, "Recall": 0.982507, "Precision": 0.879896, "F1-score": 0.928375, "AAE": 175.561820, "ARE": 0.028819})
+        ("TightSketch", {"Insert": 0.303082, "Query": 0.229162, "Recall": 0.984451, "Precision": 1.000000, "F1-score": 0.992165, "AAE": 26.871668, "ARE": 0.005139}),
+        ("TightSketch(2stage)", {"Insert": 0.211415, "Query": 0.235395, "Recall": 0.997085, "Precision": 0.876174, "F1-score": 0.932727, "AAE": 173.521442, "ARE": 0.028677})
     ],
 
     "memory_300000_threshold_0.0001": [
@@ -128,8 +128,8 @@ data = {
         ("MVSketch(2stage)", {"Insert": 0.242354, "Query": 0.292015, "Recall": 0.984451, "Precision": 0.920909, "F1-score": 0.951620, "AAE": 127.978282, "ARE": 0.019453}),
         ("StableSketch", {"Insert": 0.274037, "Query": 0.217830, "Recall": 0.808552, "Precision": 1.000000, "F1-score": 0.894143, "AAE": 125.830529, "ARE": 0.016621}),
         ("StableSketch(2stage)", {"Insert": 0.197737, "Query": 0.209395, "Recall": 1.000000, "Precision": 0.923698, "F1-score": 0.960336, "AAE": 123.336249, "ARE": 0.018547}),
-        ("TightSketch", {"Insert": 0.294174, "Query": 0.215888, "Recall": 0.906706, "Precision": 1.000000, "F1-score": 0.951070, "AAE": 134.331190, "ARE": 0.015794}),
-        ("TightSketch(2stage)", {"Insert": 0.185501, "Query": 0.203590, "Recall": 1.000000, "Precision": 0.923698, "F1-score": 0.960336, "AAE": 123.532556, "ARE": 0.018596})
+        ("TightSketch", {"Insert": 0.29521, "Query": 0.222038, "Recall": 0.991254, "Precision": 1.000000, "F1-score": 0.995608, "AAE": 20.130392, "ARE": 0.003647}),
+        ("TightSketch(2stage)", {"Insert": 0.200807, "Query": 0.218096, "Recall": 1.000000, "Precision": 0.923698, "F1-score": 0.960336, "AAE": 123.522838, "ARE": 0.018594})
     ],
 
     "memory_400000_threshold_0.0001": [
@@ -137,8 +137,8 @@ data = {
         ("MVSketch(2stage)", {"Insert": 0.239958, "Query": 0.285740, "Recall": 0.996113, "Precision": 0.943831, "F1-score": 0.969267, "AAE": 93.243902, "ARE": 0.013326}),
         ("StableSketch", {"Insert": 0.267896, "Query": 0.219807, "Recall": 0.849368, "Precision": 1.000000, "F1-score": 0.918550, "AAE": 172.344394, "ARE": 0.019784}),
         ("StableSketch(2stage)", {"Insert": 0.186733, "Query": 0.201119, "Recall": 1.000000, "Precision": 0.944904, "F1-score": 0.971671, "AAE": 92.492711, "ARE": 0.013217}),
-        ("TightSketch", {"Insert": 0.283572, "Query": 0.212099, "Recall": 0.927114, "Precision": 1.000000, "F1-score": 0.962179, "AAE": 95.277778, "ARE": 0.011856}),
-        ("TightSketch(2stage)", {"Insert": 0.180631, "Query": 0.191512, "Recall": 1.000000, "Precision": 0.944904, "F1-score": 0.971671, "AAE": 92.492711, "ARE": 0.013217})
+        ("TightSketch", {"Insert": 0.292472, "Query": 0.219933, "Recall": 0.992225, "Precision": 1.000000, "F1-score": 0.996098, "AAE": 13.731636, "ARE": 0.002660}),
+        ("TightSketch(2stage)", {"Insert": 0.184229, "Query": 0.197652, "Recall": 1.000000, "Precision": 0.944904, "F1-score": 0.971671, "AAE": 92.492711, "ARE": 0.013217})
     ],
 
     "memory_500000_threshold_0.0001": [
@@ -146,8 +146,8 @@ data = {
         ("MVSketch(2stage)", {"Insert": 0.239136, "Query": 0.279251, "Recall": 0.998056, "Precision": 0.952690, "F1-score": 0.974846, "AAE": 71.045764, "ARE": 0.009802}),
         ("StableSketch", {"Insert": 0.268006, "Query": 0.214250, "Recall": 0.846453, "Precision": 1.000000, "F1-score": 0.916842, "AAE": 130.363949, "ARE": 0.015159}),
         ("StableSketch(2stage)", {"Insert": 0.178700, "Query": 0.186007, "Recall": 1.000000, "Precision": 0.953661, "F1-score": 0.976281, "AAE": 71.225462, "ARE": 0.009878}),
-        ("TightSketch", {"Insert": 0.278473, "Query": 0.208550, "Recall": 0.943635, "Precision": 1.000000, "F1-score": 0.971000, "AAE": 82.406797, "ARE": 0.011528}),
-        ("TightSketch(2stage)", {"Insert": 0.185588, "Query": 0.194557, "Recall": 1.000000, "Precision": 0.953661, "F1-score": 0.976281, "AAE": 71.225462, "ARE": 0.009878})
+        ("TightSketch", {"Insert": 0.284985, "Query": 0.211107, "Recall": 0.992225, "Precision": 1.000000, "F1-score": 0.996098, "AAE": 14.962782, "ARE": 0.002712}),
+        ("TightSketch(2stage)", {"Insert": 0.177975, "Query": 0.188826, "Recall": 1.000000, "Precision": 0.953661, "F1-score": 0.976281, "AAE": 71.225462, "ARE": 0.009878})
     ]
 }
 

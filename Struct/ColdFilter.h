@@ -9,6 +9,8 @@
 template<typename DATA_TYPE, typename COUNT_TYPE>
 class ColdFilter {
 public:
+    std::string name = "ColdFilter";
+
     ColdFilter(uint32_t _MEMORY, uint32_t _THRESHOLD) {
 
         uint32_t layer1_length = (_MEMORY * L1_MEMORY_RATIO * 8) / L1_COUNTER_BIT; 
